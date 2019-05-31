@@ -58,8 +58,6 @@ class QuestionsController extends Controller
     public function store(AskQuestionRequest $request)
     {
 
-
-
          $question = $request->user()->questions()->create($request->only('title','body'));
          $question->setCategory($request->get('category_id'));
 
