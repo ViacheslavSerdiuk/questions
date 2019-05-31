@@ -31,7 +31,7 @@ Route::post('/questions/{question}/vote','VoteQuestionController')->name('questi
 Route::post('/answers/{answer}/vote','VoteAnswerController')->name('answers.vote');
 
 Route::group(['middleware'=>'auth'],function() {
-    Route::get('/profile', 'ProfileController@index');
+    Route::get('/profile', 'ProfileController@index')->name('profile.index');
     Route::post('/profile', 'ProfileController@store');
 
 

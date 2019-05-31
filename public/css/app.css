@@ -10794,3 +10794,7 @@ footer {
   min-height: 250px;
 }
 
+.btn-outline-secondary.custom-update {
+  float: right;
+}
+

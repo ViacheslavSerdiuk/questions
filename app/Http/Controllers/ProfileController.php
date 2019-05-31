@@ -16,12 +16,14 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {
+
         $user = Auth::user();
         $user->edit($request->all());
         $user->generatePassword($request->get('password'));
         $user->uploadAvatar($request->file('avatar'));
         $user->save();
-        return redirect()->back()->with('status','Профиль обновлен');
+      //  return redirect()->back()->with('status','Profile updated successfully!!!');
+        return redirect()->route('profile.index')->with('success','Profile has been updated!!!');
 
     }
 
