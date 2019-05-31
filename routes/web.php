@@ -43,7 +43,11 @@ Route::get('/profile/{id}', 'ProfileController@show')->name('profile.show');
 Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin'],function() {
     Route::resource('/categories','CategoriesController');
     Route::get('/', 'DashboardController@index');
-    Route::resource('/questions','QuestionsController',['names'=>['index'=>'admin.questions.index','destroy'=>'admin.questions.delete']])->only('index','destroy');
+    Route::resource('/questions','QuestionsController',['names'=>['index'=>'admin.questions.index',
+        'destroy'=>'admin.questions.delete',
+        'edit'=>'admin.questions.edit',
+        'update'=>'admin.questions.update'
+    ]])->only('index','destroy','edit','update');
     Route::resource('/users','UsersController');
 });
 

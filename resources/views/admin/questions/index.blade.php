@@ -41,7 +41,7 @@
                                 <td>{{$question->votes_count}}</td>
 
                                 <td>
-
+                                    <a href="{{route('admin.questions.edit',$question->id)}}"><i class="fas fa-edit"></i></a>
                                     {{Form::open(['route'=>['admin.questions.delete',$question->id],'method'=>'delete'])}}
                                     <button onclick="return confirm('Are you sure???');" type="submit" class="delete">
                                         Remove

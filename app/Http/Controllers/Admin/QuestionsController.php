@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Question;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -59,7 +60,9 @@ class QuestionsController extends Controller
      */
     public function edit(Question $question)
     {
-        //
+
+        $category = Category::pluck('title','id')->all();
+        return view('admin.questions.edit',['category'=>$category,'question'=>$question]);
     }
 
     /**
@@ -71,7 +74,13 @@ class QuestionsController extends Controller
      */
     public function update(Request $request, Question $question)
     {
-        //
+
+
+        $question->setCategory($request->get('category_id'));
+        $question->update($request->only('title', 'body'));
+
+        return redirect()->route('admin.questions.index')->with('success','Your question has been updated');
+
     }
 
     /**
