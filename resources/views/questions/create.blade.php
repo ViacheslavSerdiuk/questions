@@ -16,10 +16,14 @@
                     </div>
 
                     <div class="card-body">
-                      <form action="{{route('questions.store')}}" method="post">
-                        @include('questions._form',['buttonText'=>'Ask Question'])
-                      </form>
+                        {{Form::open([
+                        'route'=>'questions.store',
+                          ])}}
 
+                        @include('questions._form',['buttonText'=>'Ask Question'])
+
+
+                        {{Form::close()}}
                     </div>
                 </div>
             </div>

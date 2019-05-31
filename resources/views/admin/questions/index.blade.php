@@ -25,6 +25,7 @@
                             <th>Title</th>
                             <th>Answers</th>
                             <th>Views</th>
+                            <th>Category</th>
                             <th>Vote</th>
                             <th>Действия</th>
                         </tr>
@@ -36,6 +37,7 @@
                                 <td>{{$question->title}}</td>
                                 <td>{{$question->answers->count()}}</td>
                                 <td>{{$question->views}}</td>
+                                <td>{{$question->getCategoryTitle()}}</td>
                                 <td>{{$question->votes_count}}</td>
 
                                 <td>

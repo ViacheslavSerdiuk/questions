@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Answer;
+use App\Category;
 use App\Http\Requests\AskQuestionRequest;
 use App\Providers\DateCheckServiceProvider;
 use App\Question;
@@ -43,8 +44,8 @@ class QuestionsController extends Controller
     {
 
          $question = new Question();
-
-         return view('questions.create',compact('question'));
+         $category = Category::pluck('title','id')->all();
+         return view('questions.create',['question'=>$question, 'category'=>$category]);
 
     }
 
@@ -58,8 +59,9 @@ class QuestionsController extends Controller
     {
 
 
-       $request->user()->questions()->create($request->only('title','body'));
 
+         $question = $request->user()->questions()->create($request->only('title','body'));
+         $question->setCategory($request->get('category_id'));
 
       return redirect()->route('questions.index')->with('success','Your message has been submitted');
 
@@ -89,9 +91,9 @@ class QuestionsController extends Controller
     public function edit(Question $question)
     {
 
-       $this->authorize("update",$question);
-
-        return view("questions.edit",compact('question'));
+        $this->authorize("update",$question);
+        $category = Category::pluck('title','id')->all();
+        return view("questions.edit",['question'=>$question, 'category'=>$category]);
     }
 
     /**
@@ -106,8 +108,8 @@ class QuestionsController extends Controller
 
         $this->authorize("update",$question);
 
+        $question->setCategory($request->get('category_id'));
         $question->update($request->only('title', 'body'));
-
         if($request->expectsJson()){
 
             return response( )->json([

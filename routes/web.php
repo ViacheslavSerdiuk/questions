@@ -17,6 +17,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/category/{slugcategory}','HomeController@category')->name('category.show');
+
 Route::resource('questions','QuestionsController')->except('show');
 //Route::post('/questions/{question}/answers','AnswersComntroller@store')->name('answers.store');
 Route::resource('questions.answers','AnswersController')->except(['create','show']);
@@ -39,7 +41,7 @@ Route::group(['middleware'=>'auth'],function() {
 Route::get('/profile/{id}', 'ProfileController@show')->name('profile.show');
 
 Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin'],function() {
-
+    Route::resource('/categories','CategoriesController');
     Route::get('/', 'DashboardController@index');
     Route::resource('/questions','QuestionsController',['names'=>['index'=>'admin.questions.index','destroy'=>'admin.questions.delete']])->only('index','destroy');
     Route::resource('/users','UsersController');

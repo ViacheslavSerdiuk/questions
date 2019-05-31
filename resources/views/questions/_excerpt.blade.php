@@ -47,6 +47,10 @@
             <small class="text-muted">{{$question->created_date}}</small>
         </p>
         <div class="excerpt">{{ $question->excerpt(250)}}</div>
+        @if($question->hasCategory())
+            <a href="{{route('category.show',$question->category->slug)}}">{{$question->getCategoryTitle()}}</a>
+        @endif
     </div>
+
 
 </div>

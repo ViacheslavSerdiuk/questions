@@ -5,13 +5,22 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
+
+
 class Question extends Model
 {
     use VotableTrait;
 
+
     protected $fillable = ['title','body'];
 
     protected  $appends = ['created_date','is_favorited','favorites_count','body_html'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class,'category_id');
+    }
+
 
     public function user()
     {
@@ -110,5 +119,41 @@ class Question extends Model
         $this->attributes['body'] = clean($value);
     }*/
 
+    public static function add($fields)
+    {
+
+        $question = new static;
+
+        $question->fill($fields);
+
+        $question->save();
+
+        return $question;
+
+    }
+
+    public function setCategory($id)
+    {
+        if($id == null) {return;}
+
+        $this->category_id =$id;
+
+        $this->save();
+    }
+    public function getCategoryTitle()
+    {
+        if($this->category != null)
+        {
+
+            return $this->category->title;
+        }
+
+        return '---';
+    }
+
+    public function hasCategory()
+    {
+        return $this->category != null ? true : false;
+    }
 
 }

@@ -54842,9 +54842,7 @@ Vue.use(vue_izitoast__WEBPACK_IMPORTED_MODULE_0___default.a);
 
 
 Vue.use(_ckeditor_ckeditor5_vue__WEBPACK_IMPORTED_MODULE_3___default.a);
-Vue.use(_authorization_authorize__WEBPACK_IMPORTED_MODULE_2__["default"]); // const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-
+Vue.use(_authorization_authorize__WEBPACK_IMPORTED_MODULE_2__["default"]);
 Vue.component('user-info', __webpack_require__(/*! ./components/Userinfo.vue */ "./resources/js/components/Userinfo.vue")["default"]);
 /*Vue.component('answer', require('./components/Answer.vue').default);*/
 

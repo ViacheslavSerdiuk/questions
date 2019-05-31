@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,5 +26,17 @@ class HomeController extends Controller
     {
         return view('home');
 
+    }
+
+
+    public function category($slug)
+    {
+     //   dd($slug);
+
+        $category = Category::where('slug', $slug)->firstOrFail();
+
+        $questions = $category->questions()->paginate(10);
+
+        return view('questions.index',compact('questions'));
     }
 }

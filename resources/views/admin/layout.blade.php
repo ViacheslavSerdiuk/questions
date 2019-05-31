@@ -94,6 +94,10 @@
                     <a href="{{route('admin.questions.index')}}" class="btn btn-outline-secondary">Questions</a>
                 </div>
 
+                <div class="ml-auto mt-5">
+                    <a href="{{route('categories.index')}}" class="btn btn-outline-secondary">Categories</a>
+                </div>
+
             </section>
             <!-- /.sidebar -->
         </aside>
