@@ -86,7 +86,9 @@
         </main>
     </div>
     <!-- Scripts -->
-
+    <footer>
+        @include('footer')
+    </footer>
     <script>
         window.Auth = {!! json_encode([
             'signedIn' => Auth::check(),

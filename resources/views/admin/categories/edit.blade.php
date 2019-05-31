@@ -28,7 +28,7 @@
 
 
             <div class="box-footer ml-3">
-                <a class="btn btn-outline-secondary" href="{{route('users.index')}}">Back</a>
+                <a class="btn btn-outline-secondary" href="{{route('categories.index')}}">Back</a>
                 <button class="btn btn-outline-secondary pull-right">Apply</button>
             </div>
             <!-- /.box-footer-->
