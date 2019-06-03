@@ -30,7 +30,9 @@ class ProfileController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('pages.profile',['user'=>$user]);
+        $questions = $user->questions()->orderBy('views','desc')->get();
+
+        return view('pages.profile',['user'=>$user,'questions'=>$questions]);
     }
 
 

@@ -186,4 +186,6 @@ class User extends Authenticatable
         $this->removeAvatar();
         $this->delete();
     }
+
+
 }

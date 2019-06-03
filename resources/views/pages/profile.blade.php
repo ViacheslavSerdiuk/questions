@@ -33,6 +33,25 @@
                 </div>
 
             </div>
+            <div class="row">
+                <div class="col-md-12 mt-5">
+                      <p>Most Popular Questions posted by User</p>
+
+                    <div class="bg-white">
+                    @foreach($questions as $question)
+                        <div class="d-flex profile-last-q">
+                        <p>View : {{$question->views}} &nbsp;</p>
+                        <a href="{{$question->url}}">
+                            <p class="">{{$question->title}}</p></a>
+                         <p>{{$question->created_at}}</p>
+                    </div>
+                    @endforeach
+                    </div>
+                </div>
+
+            </div>
+
+
         </div>
     </div>
     <!-- end main content-->

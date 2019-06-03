@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <i class="fa fa-lock"></i>
+
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -97,6 +97,12 @@
     </script>
 
     <script src="{{ asset('js/app.js') }}"></script>
-
+    <script>
+        $(document).ready(function() {
+            $('pre p').each(function(i, block) {  // use <pre><p>
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
 </body>
 </html>
