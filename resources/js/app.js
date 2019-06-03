@@ -30,10 +30,6 @@ Vue.use( CKEditor );
 
 Vue.use(Authorization);
 
-
-Vue.component('user-info', require('./components/Userinfo.vue').default);
-/*Vue.component('answer', require('./components/Answer.vue').default);*/
-Vue.component('vote', require('./components/Vote.vue').default);
 Vue.component('question-page', require('./pages/QuestionPage.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to

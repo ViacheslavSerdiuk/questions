@@ -10802,3 +10802,11 @@ footer {
   float: right;
 }
 
+#example1_wrapper {
+  display: block;
+}
+
+#example1_wrapper :first-child {
+  margin-bottom: 2px;
+}
+

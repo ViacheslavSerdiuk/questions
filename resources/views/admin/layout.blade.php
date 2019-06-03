@@ -70,20 +70,13 @@
     </nav>
 
     <main class="ru-4 m-5">
+        <div class="col-md-2">
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
+            <section class="sidebar col-md-60">
                 <!-- Sidebar user panel -->
                 <!-- search form -->
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-                    </div>
-                </form>
+
 
 
                 <div class="ml-auto mt-5">
@@ -101,7 +94,10 @@
             </section>
             <!-- /.sidebar -->
         </aside>
+        </div>
+        <div class="col-md-6">
         @yield('content')
+        </div>
     </main>
     </div>
 </div>
@@ -117,5 +113,6 @@
         ]) !!}
 </script>
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="/js/admin.js"></script>
 </body>
 </html>

@@ -25,8 +25,8 @@ class Answer extends Model
 
     public function getBodyHtmlAttribute(){
 
-        //return $this->body;
-       return clean(\Parsedown::instance()->text($this->body));
+      //  return $this->body;
+       return \Parsedown::instance()->text($this->body);
 
     }
 

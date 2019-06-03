@@ -11,7 +11,7 @@
                 @include('layouts._messages')
                 @foreach($answers as $answer)
 
-                 @include('answers._answer')
+                 @include('answers.old_on_vue__answer')
 
                 @endforeach
             </div>

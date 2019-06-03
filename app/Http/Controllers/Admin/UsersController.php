@@ -48,7 +48,6 @@ class UsersController extends Controller
         ]);
 
         $user = User::add($request->all());
-
         $user->uploadAvatar($request->file('avatar'));
         $user->generatePassword($request->get('password'));
         return redirect()->route('users.index');
@@ -65,7 +64,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        dd($user);
+       //
     }
 
     /**
