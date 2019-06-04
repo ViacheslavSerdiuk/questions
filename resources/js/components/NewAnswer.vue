@@ -88,7 +88,7 @@
                         }),
                         new Code(),
                     ],
-                    content : this.content
+                    content : '<p></p><p></p>'
                 }),
                 body : '',
 

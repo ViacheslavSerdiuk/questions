@@ -4100,7 +4100,7 @@ __webpack_require__.r(__webpack_exports__);
             php: highlight_js_lib_languages_php__WEBPACK_IMPORTED_MODULE_2___default.a
           }
         }), new tiptap_extensions__WEBPACK_IMPORTED_MODULE_4__["Code"]()],
-        content: this.content
+        content: '<p></p><p></p>'
       }),
       body: ''
     };
