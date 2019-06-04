@@ -25,8 +25,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 Vue.use(VueIziToast);
 
 import Authorization from './authorization/authorize';
-import CKEditor from '@ckeditor/ckeditor5-vue';
-Vue.use( CKEditor );
+
 
 Vue.use(Authorization);
 

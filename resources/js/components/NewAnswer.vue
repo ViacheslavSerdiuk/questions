@@ -16,8 +16,27 @@
 
 
                         </textarea>-->
-                        <ckeditor :editor="editor" v-model="body" :config="editorConfig"></ckeditor>
+                        <!--<ckeditor :editor="editor" v-model="body" :config="editorConfig"></ckeditor>-->
+                        <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">
+                            <div>
+                                <button :class="{ 'is-active': isActive.bold() }" @click.prevent="commands.bold">
+                                    Bold
+                                </button>
+                                <button :class="{ 'is-active': isActive.heading({ level: 2 }) }" @click.prevent="commands.heading({ level: 2 })">
+                                    H2
+                                </button>
+                                <button
+                                        class="menubar__button"
+                                        :class="{ 'is-active': isActive.code_block() }"
+                                        @click.prevent="commands.code_block"
+                                >
+                                    <></button>
 
+                            </div>
+                        </editor-menu-bar>
+                        <div class="question-create">
+                        <editor-content :editor="editor"/>
+                        </div>
                     </div>
                     <div class="form-group">
                         <button type="submit" :disabled="isInvalid" class="btn btn-lg btn-outline-primary">
@@ -33,22 +52,46 @@
 
 
 <script>
-    import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
+    import javascript from 'highlight.js/lib/languages/javascript'
+    import css from 'highlight.js/lib/languages/css'
+    import php from 'highlight.js/lib/languages/php'
+
+    import { Editor, EditorContent, EditorMenuBar } from 'tiptap'
+    import {
+        Bold,
+        Heading,
+        CodeBlockHighlight,
+        Code
+    }  from 'tiptap-extensions'
 
     export default {
 
         props : ['questionId'],
-
+        components: {
+            EditorMenuBar,
+            EditorContent,
+        },
 
         data(){
             return {
-                editor: ClassicEditor,
+                editor: new Editor({
+                    extensions : [
+                        new Bold(),
+                        new Heading(),
+                        new CodeBlockHighlight({
+                            languages: {
+                                javascript,
+                                css,
+                                php
+                            },
+                        }),
+                        new Code(),
+                    ],
+                    content : this.content
+                }),
                 body : '',
-                editorData: '<p>Content of the editor.</p>',
-                editorConfig: {
-                    // The configuration of the editor.
-                }
+
             }
         },
 
@@ -56,20 +99,23 @@
 
             isInvalid(){
 
-                return !this.signedIn;
+                return !this.signedIn || this.editor.getHTML().length <10 ;
 
             }
         },
 
         methods : {
+
              create(){
+
                   axios.post(`/questions/${this.questionId}/answers`,{
-                      body : this.body
+                      body : this.editor.getHTML()
                       })
                       .then(({data}) =>{
 
                           this.$toast.success(data.message,'Success');
-                          this.body ="";
+                          this.body = this.editor.getHTML();
+                          this.editor.clearContent();
 
                           this.$emit('created',data.answer);
 
@@ -80,7 +126,7 @@
                       })
 
 
-            }
+            },
 
 
         }
@@ -88,3 +134,63 @@
     }
 
     </script>
+<style lang="scss">
+    pre {
+        background-color: lightgray;
+        &::before {
+            content: attr(data-language);
+            text-transform: uppercase;
+            display: block;
+            text-align: right;
+            font-weight: bold;
+            font-size: 0.6rem;
+        }
+        code {
+
+            .hljs-comment,
+            .hljs-quote {
+                color: #999999;
+            }
+            .hljs-variable,
+            .hljs-template-variable,
+            .hljs-attribute,
+            .hljs-tag,
+            .hljs-name,
+            .hljs-regexp,
+            .hljs-link,
+            .hljs-name,
+            .hljs-selector-id,
+            .hljs-selector-class {
+                color: #f2777a;
+            }
+            .hljs-number,
+            .hljs-meta,
+            .hljs-built_in,
+            .hljs-builtin-name,
+            .hljs-literal,
+            .hljs-type,
+            .hljs-params {
+                color: #f99157;
+            }
+            .hljs-string,
+            .hljs-symbol,
+            .hljs-bullet {
+                color: #99cc99;
+            }
+            .hljs-title,
+            .hljs-section {
+                color: #ffcc66;
+            }
+            .hljs-keyword,
+            .hljs-selector-tag {
+                color: #6699cc;
+            }
+            .hljs-emphasis {
+                font-style: italic;
+            }
+            .hljs-strong {
+                font-weight: 700;
+            }
+        }
+    }
+</style>
