@@ -20,7 +20,7 @@ export default {
         },
 
         update () {
-            console.log('updated'+this.endpoint);
+            console.log('updated'+this.dataurl);
             axios.put(this.endpoint, this.payload())
                 .then(({data}) => {
                     this.body_html = data.body_html;

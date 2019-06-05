@@ -14,7 +14,7 @@ class Question extends Model
 
     protected $fillable = ['title','body'];
 
-    protected  $appends = ['created_date','is_favorited','favorites_count','body_html'];
+    protected  $appends = ['created_date','is_favorited','favorites_count','body_html','data_url'];
 
     public function category()
     {
@@ -37,6 +37,11 @@ class Question extends Model
     public function getUrlAttribute()
     {
         return route('questions.show',$this->slug);
+    }
+
+    public function getDataUrlAttribute()
+    {
+        return route('questions.update',$this->id);
     }
 
     public function getCreatedDateAttribute()

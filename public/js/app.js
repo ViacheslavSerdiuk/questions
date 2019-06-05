@@ -4366,6 +4366,7 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_mixins_modification__WEBPACK_IMPORTED_MODULE_2__["default"]],
   data: function data() {
     return {
+      dataurl: this.question.data_url,
       body: this.question.body,
       title: this.question.title,
       body_html: this.question.body_html,
@@ -4415,7 +4416,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.body.length < 10 || this.title.length < 10;
     },
     endpoint: function endpoint() {
-      return "/questions/".concat(this.id, "/");
+      return this.dataurl; // return `/questions/${this.id}/`;
     }
   },
   components: {
@@ -68593,7 +68594,9 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("question", { attrs: { question: _vm.question } }),
+      _c("question", {
+        attrs: { question: _vm.question, dataurl: _vm.dataurl }
+      }),
       _vm._v(" "),
       _c("answers", { attrs: { question: _vm.question } })
     ],
@@ -81738,7 +81741,7 @@ __webpack_require__.r(__webpack_exports__);
     update: function update() {
       var _this = this;
 
-      console.log('updated' + this.endpoint);
+      console.log('updated' + this.dataurl);
       axios.put(this.endpoint, this.payload()).then(function (_ref) {
         var data = _ref.data;
         _this.body_html = data.body_html;

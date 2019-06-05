@@ -79,7 +79,7 @@ export default {
     mixins: [modification],
     data(){
         return{
-
+            dataurl:this.question.data_url,
             body: this.question.body,
             title : this.question.title,
             body_html : this.question.body_html,
@@ -137,7 +137,8 @@ export default {
         },
 
         endpoint(){
-            return `/questions/${this.id}/`;
+            return this.dataurl
+           // return `/questions/${this.id}/`;
         }
     },
     components :{
