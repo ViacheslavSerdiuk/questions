@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <question :question="question" :dataurl="dataurl"></question>
+        <question :question="question"></question>
         <answers :question="question"></answers>
     </div>
 

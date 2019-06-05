@@ -68594,9 +68594,7 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("question", {
-        attrs: { question: _vm.question, dataurl: _vm.dataurl }
-      }),
+      _c("question", { attrs: { question: _vm.question } }),
       _vm._v(" "),
       _c("answers", { attrs: { question: _vm.question } })
     ],
