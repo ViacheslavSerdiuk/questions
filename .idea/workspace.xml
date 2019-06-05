@@ -3,19 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ae292d11-128f-4096-9c5b-c35937c13bb0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Question.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Answer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Answer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/NewAnswer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/NewAnswer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Question.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Question.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/questions/_excerpt.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/questions/_excerpt.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/questions/_form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/questions/_form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/questions/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/questions/create.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/Question.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="649">
-              <caret line="107" column="32" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="32" />
+            <state relative-caret-position="874">
+              <caret line="131" column="6" selection-start-line="131" selection-start-column="6" selection-end-line="131" selection-end-column="6" />
               <folding>
                 <element signature="e#2688#2722#0" expanded="true" />
               </folding>
@@ -90,23 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
-              <folding>
-                <element signature="e#615#654#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+            <state relative-caret-position="604">
+              <caret line="113" column="45" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -215,8 +191,8 @@
         <option value="$PROJECT_DIR$/resources/js/components/NewQuestion.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/NewAnswer.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/Answer.vue" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/components/Question.vue" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
       </list>
     </option>
   </component>
@@ -489,12 +465,12 @@
       <workItem from="1559312784414" duration="2220000" />
       <workItem from="1559545407534" duration="2430000" />
       <workItem from="1559549588406" duration="13834000" />
-      <workItem from="1559717591324" duration="6901000" />
+      <workItem from="1559717591324" duration="8017000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="422296000" />
+    <option name="totallyTimeSpent" value="423412000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -507,6 +483,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.67540574" visible="true" weight="0.35378867" />
       <window_info id="Structure" order="1" sideWeight="0.32459426" side_tool="true" weight="0.19900498" />
@@ -948,13 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/Answer.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -964,11 +934,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/Question.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="107" column="32" selection-start-line="107" selection-start-column="32" selection-end-line="107" selection-end-column="32" />
+        <state relative-caret-position="874">
+          <caret line="131" column="6" selection-start-line="131" selection-start-column="6" selection-end-line="131" selection-end-column="6" />
           <folding>
             <element signature="e#2688#2722#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="604">
+          <caret line="113" column="45" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="47" />
         </state>
       </provider>
     </entry>

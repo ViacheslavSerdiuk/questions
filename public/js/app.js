@@ -4406,9 +4406,11 @@ __webpack_require__.r(__webpack_exports__);
       }, 2000);
     }
   },
-  mounted: function mounted() {
-    hljs.initHighlightingOnLoad();
-  },
+
+  /* mounted() {
+       hljs.initHighlightingOnLoad();
+   },
+  */
   computed: {
     isInvalid: function isInvalid() {
       return this.body.length < 10 || this.title.length < 10;

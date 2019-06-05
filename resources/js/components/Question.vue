@@ -127,10 +127,10 @@ export default {
 
 
     },
-    mounted() {
+   /* mounted() {
         hljs.initHighlightingOnLoad();
     },
-
+*/
     computed: {
         isInvalid(){
             return this.body.length <10 || this.title.length <10;
