@@ -81738,6 +81738,7 @@ __webpack_require__.r(__webpack_exports__);
     update: function update() {
       var _this = this;
 
+      console.log('updated' + this.endpoint);
       axios.put(this.endpoint, this.payload()).then(function (_ref) {
         var data = _ref.data;
         _this.body_html = data.body_html;

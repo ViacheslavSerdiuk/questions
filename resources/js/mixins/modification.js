@@ -9,6 +9,7 @@ export default {
 
     methods : {
         edit(){
+
             this.setEditCache();
             this.editing = true;
         },
@@ -19,6 +20,7 @@ export default {
         },
 
         update () {
+            console.log('updated'+this.endpoint);
             axios.put(this.endpoint, this.payload())
                 .then(({data}) => {
                     this.body_html = data.body_html;
