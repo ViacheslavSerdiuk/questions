@@ -14,6 +14,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <script src="/plugins/highlights/highlight.pack.js"></script>
 
 
     <!-- Styles -->
@@ -97,12 +98,15 @@
     </script>
 
     <script src="{{ asset('js/app.js') }}"></script>
-    <script>
+
+  {{-- <script>
         $(document).ready(function() {
             $('pre p').each(function(i, block) {  // use <pre><p>
                 hljs.highlightBlock(block);
             });
         });
-    </script>
+    </script>--}}
+
+
 </body>
 </html>

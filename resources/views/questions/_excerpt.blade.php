@@ -46,7 +46,7 @@
             <a href="{{$question->user->url}}">{{$question->user->name}}</a>
             <small class="text-muted">{{$question->created_date}}</small>
         </p>
-        <div class="excerpt">{{ $question->excerpt(250)}}</div>
+        {{--<div class="excerpt">{{ $question->excerpt(250)}}</div>--}}
         @if($question->hasCategory())
             <a class="btn btn-info" href="{{route('category.show',$question->category->slug)}}">{{$question->getCategoryTitle()}}</a>
 

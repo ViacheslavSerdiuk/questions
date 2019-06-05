@@ -103,7 +103,7 @@
             }
         },
         mounted() {
-            console.log(window)
+            hljs.initHighlightingOnLoad();
         },
 
         components :{

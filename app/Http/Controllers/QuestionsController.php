@@ -44,8 +44,10 @@ class QuestionsController extends Controller
     {
 
          $question = new Question();
-         $category = Category::pluck('title','id')->all();
-         return view('questions.create',['question'=>$question, 'category'=>$category]);
+         $categories = Category::all();
+         //$category = json_encode($category);
+
+         return view('questions.create',['question'=>$question, 'categories'=>$categories]);
 
     }
 
@@ -60,7 +62,14 @@ class QuestionsController extends Controller
 
          $question = $request->user()->questions()->create($request->only('title','body'));
          $question->setCategory($request->get('category_id'));
+        if($request->expectsJson()){
 
+            return response( )->json([
+                'message'=>'Your answer has been submitted',
+                'question'=>$question->load('user')
+
+            ]);
+        }
       return redirect()->route('questions.index')->with('success','Your message has been submitted');
 
     }

@@ -16,14 +16,16 @@
                     </div>
 
                     <div class="card-body">
-                        {{Form::open([
+
+                        <new-question :categories="{{ $categories }}"></new-question>
+                      {{--  {{Form::open([
                         'route'=>'questions.store',
                           ])}}
 
                         @include('questions._form',['buttonText'=>'Ask Question'])
 
 
-                        {{Form::close()}}
+                        {{Form::close()}}--}}
                     </div>
                 </div>
             </div>

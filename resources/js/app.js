@@ -34,6 +34,8 @@ Vue.component('user-info', require('./components/Userinfo.vue').default);
 Vue.component('vote', require('./components/Vote.vue').default);
 
 Vue.component('question-page', require('./pages/QuestionPage.vue').default);
+
+Vue.component('new-question', require('./components/NewQuestion').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

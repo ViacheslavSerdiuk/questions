@@ -58,7 +58,7 @@ class Question extends Model
 
     public function getBodyHtmlAttribute()
     {
-        return clean($this->bodyHtml());
+        return $this->bodyHtml();
     }
 
     public function answers()
@@ -108,6 +108,7 @@ class Question extends Model
         return  \Parsedown::instance()->text($this->body);
     }
 
+    //not use
     public function excerpt($length)
     {
 

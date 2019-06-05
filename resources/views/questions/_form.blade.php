@@ -1,4 +1,5 @@
 
+
 <div class="form-group">
     <label for="question-title"> Question title</label>
     <input type="text" name="title" value="{{old('title',$question->title)}}" id="question-title" class="form-control {{$errors->has('title')?'is-invalid':'' }}">

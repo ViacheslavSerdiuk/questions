@@ -10818,3 +10818,68 @@ footer {
   border: 1px solid lightblue;
 }
 
+pre {
+  background-color: lightgray;
+}
+
+pre::before {
+  content: attr(data-language);
+  text-transform: uppercase;
+  display: block;
+  text-align: right;
+  font-weight: bold;
+  font-size: 0.6rem;
+}
+
+pre code .hljs-comment,
+pre code .hljs-quote {
+  color: #999999;
+}
+
+pre code .hljs-variable,
+pre code .hljs-template-variable,
+pre code .hljs-attribute,
+pre code .hljs-tag,
+pre code .hljs-name,
+pre code .hljs-regexp,
+pre code .hljs-link,
+pre code .hljs-name,
+pre code .hljs-selector-id,
+pre code .hljs-selector-class {
+  color: #f2777a;
+}
+
+pre code .hljs-number,
+pre code .hljs-meta,
+pre code .hljs-built_in,
+pre code .hljs-builtin-name,
+pre code .hljs-literal,
+pre code .hljs-type,
+pre code .hljs-params {
+  color: #f99157;
+}
+
+pre code .hljs-string,
+pre code .hljs-symbol,
+pre code .hljs-bullet {
+  color: #99cc99;
+}
+
+pre code .hljs-title,
+pre code .hljs-section {
+  color: #ffcc66;
+}
+
+pre code .hljs-keyword,
+pre code .hljs-selector-tag {
+  color: #6699cc;
+}
+
+pre code .hljs-emphasis {
+  font-style: italic;
+}
+
+pre code .hljs-strong {
+  font-weight: 700;
+}
+
