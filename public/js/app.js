@@ -4383,7 +4383,6 @@ __webpack_require__.r(__webpack_exports__);
     restoreFromCache: function restoreFromCache() {
       this.body = this.beforeEditCache.body;
       this.title = this.beforeEditCache.title;
-      hljs.initHighlightingOnLoad();
     },
     payload: function payload() {
       return {

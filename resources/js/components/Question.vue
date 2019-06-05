@@ -100,7 +100,7 @@ export default {
         restoreFromCache(){
             this.body = this.beforeEditCache.body;
             this.title = this.beforeEditCache.title;
-            hljs.initHighlightingOnLoad();
+
         },
 
         payload(){

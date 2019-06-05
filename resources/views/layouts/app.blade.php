@@ -109,11 +109,14 @@
     </script>--}}
 
     <script src="/plugins/highlights/highlight.pack.js"></script>
-    <script>  jQuery(document).ready(function() {
-            jQuery('pre p').each(function(i, block) {  // use <pre><p>
-                hljs.highlightBlock(block);
-            });
-        });</script>
+
+
+    <script>
+        setTimeout(function () {
+            console.log('add highlite');
+            hljs.initHighlightingOnLoad();
+        }, 1000);
+      </script>
 
 
 </body>
