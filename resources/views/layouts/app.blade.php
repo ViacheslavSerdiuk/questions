@@ -114,7 +114,7 @@
     <script>
         setTimeout(function () {
             console.log('add highlite');
-            hljs.initHighlightingOnLoad();
+            hljs.initHighlighting();
         }, 1000);
       </script>
 
