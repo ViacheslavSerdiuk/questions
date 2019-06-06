@@ -23,7 +23,7 @@ export default {
             console.log('updated'+this.dataurl);
             axios.put(this.endpoint, this.payload())
                 .then(({data}) => {
-                    this.body_html = data.body_html;
+                    this.body_html = this.editor.getHTML();
                     this.$toast.success(data.message, 'Success', {timeout:3000});
                     this.editing = false;
 

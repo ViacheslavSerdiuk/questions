@@ -4288,6 +4288,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Userinfo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Userinfo */ "./resources/js/components/Userinfo.vue");
 /* harmony import */ var _Vote__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Vote */ "./resources/js/components/Vote.vue");
 /* harmony import */ var _mixins_modification__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixins/modification */ "./resources/js/mixins/modification.js");
+/* harmony import */ var highlight_js_lib_languages_javascript__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! highlight.js/lib/languages/javascript */ "./node_modules/highlight.js/lib/languages/javascript.js");
+/* harmony import */ var highlight_js_lib_languages_javascript__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(highlight_js_lib_languages_javascript__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var highlight_js_lib_languages_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! highlight.js/lib/languages/css */ "./node_modules/highlight.js/lib/languages/css.js");
+/* harmony import */ var highlight_js_lib_languages_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(highlight_js_lib_languages_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var highlight_js_lib_languages_php__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! highlight.js/lib/languages/php */ "./node_modules/highlight.js/lib/languages/php.js");
+/* harmony import */ var highlight_js_lib_languages_php__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(highlight_js_lib_languages_php__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var tiptap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tiptap */ "./node_modules/tiptap/dist/tiptap.esm.js");
+/* harmony import */ var tiptap_extensions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tiptap-extensions */ "./node_modules/tiptap-extensions/dist/extensions.esm.js");
 //
 //
 //
@@ -4358,6 +4366,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
 
 
 
@@ -4366,6 +4400,16 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_mixins_modification__WEBPACK_IMPORTED_MODULE_2__["default"]],
   data: function data() {
     return {
+      editor: new tiptap__WEBPACK_IMPORTED_MODULE_6__["Editor"]({
+        extensions: [new tiptap_extensions__WEBPACK_IMPORTED_MODULE_7__["Bold"](), new tiptap_extensions__WEBPACK_IMPORTED_MODULE_7__["Heading"](), new tiptap_extensions__WEBPACK_IMPORTED_MODULE_7__["CodeBlockHighlight"]({
+          languages: {
+            javascript: highlight_js_lib_languages_javascript__WEBPACK_IMPORTED_MODULE_3___default.a,
+            css: highlight_js_lib_languages_css__WEBPACK_IMPORTED_MODULE_4___default.a,
+            php: highlight_js_lib_languages_php__WEBPACK_IMPORTED_MODULE_5___default.a
+          }
+        }), new tiptap_extensions__WEBPACK_IMPORTED_MODULE_7__["Code"]()],
+        content: '<p></p><p></p>'
+      }),
       dataurl: this.question.data_url,
       body: this.question.body,
       title: this.question.title,
@@ -4373,6 +4417,9 @@ __webpack_require__.r(__webpack_exports__);
       beforeEditCache: null,
       id: this.question.id
     };
+  },
+  created: function created() {
+    this.editor.setContent(this.body);
   },
   methods: {
     setEditCache: function setEditCache() {
@@ -4387,7 +4434,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     payload: function payload() {
       return {
-        body: this.body,
+        body: this.editor.getHTML(),
         title: this.title
       };
     },
@@ -4413,7 +4460,7 @@ __webpack_require__.r(__webpack_exports__);
   */
   computed: {
     isInvalid: function isInvalid() {
-      return this.body.length < 10 || this.title.length < 10;
+      return this.body.length < 10;
     },
     endpoint: function endpoint() {
       return this.dataurl; // return `/questions/${this.id}/`;
@@ -4421,7 +4468,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     Userinfo: _Userinfo__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Vote: _Vote__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Vote: _Vote__WEBPACK_IMPORTED_MODULE_1__["default"],
+    EditorMenuBar: tiptap__WEBPACK_IMPORTED_MODULE_6__["EditorMenuBar"],
+    EditorContent: tiptap__WEBPACK_IMPORTED_MODULE_6__["EditorContent"]
   }
 });
 
@@ -68311,58 +68360,112 @@ var render = function() {
                 _vm._v(" "),
                 _c("hr"),
                 _vm._v(" "),
-                _c("div", { staticClass: "media" }, [
-                  _c("div", { staticClass: "media-body" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("textarea", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.body,
-                            expression: "body"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { rows: "10", required: "" },
-                        domProps: { value: _vm.body },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.body = $event.target.value
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "button",
+                _c("editor-menu-bar", {
+                  attrs: { editor: _vm.editor },
+                  scopedSlots: _vm._u(
+                    [
                       {
-                        staticClass: "btn btn-primary",
-                        attrs: { disabled: _vm.isInvalid }
-                      },
-                      [_vm._v(" Update")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-outline-secondary",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.cancel($event)
-                          }
+                        key: "default",
+                        fn: function(ref) {
+                          var commands = ref.commands
+                          var isActive = ref.isActive
+                          return [
+                            _c("div", [
+                              _c(
+                                "button",
+                                {
+                                  class: { "is-active": isActive.bold() },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return commands.bold($event)
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            Bold\n                        "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  class: {
+                                    "is-active": isActive.heading({ level: 2 })
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return commands.heading({ level: 2 })
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                            H2\n                        "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "menubar__button",
+                                  class: { "is-active": isActive.code_block() },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return commands.code_block($event)
+                                    }
+                                  }
+                                },
+                                [_vm._v("\n                            <>")]
+                              )
+                            ])
+                          ]
                         }
-                      },
-                      [_vm._v(" Cancel")]
-                    )
-                  ])
-                ])
-              ]
+                      }
+                    ],
+                    null,
+                    false,
+                    2929720612
+                  )
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "question-create" },
+                  [_c("editor-content", { attrs: { editor: _vm.editor } })],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { disabled: _vm.isInvalid }
+                  },
+                  [_vm._v(" Update")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-secondary",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.cancel($event)
+                      }
+                    }
+                  },
+                  [_vm._v(" Cancel")]
+                )
+              ],
+              1
             )
           : _c("div", { staticClass: "card-body" }, [
               _c("div", { staticClass: "card-title" }, [
@@ -81742,7 +81845,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log('updated' + this.dataurl);
       axios.put(this.endpoint, this.payload()).then(function (_ref) {
         var data = _ref.data;
-        _this.body_html = data.body_html;
+        _this.body_html = _this.editor.getHTML();
 
         _this.$toast.success(data.message, 'Success', {
           timeout: 3000

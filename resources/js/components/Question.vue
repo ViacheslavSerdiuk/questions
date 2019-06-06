@@ -9,8 +9,29 @@
                     </div>
                     <hr>
 
+                    <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">
+                        <div>
+                            <button :class="{ 'is-active': isActive.bold() }" @click.prevent="commands.bold">
+                                Bold
+                            </button>
+                            <button :class="{ 'is-active': isActive.heading({ level: 2 }) }" @click.prevent="commands.heading({ level: 2 })">
+                                H2
+                            </button>
+                            <button
+                                    class="menubar__button"
+                                    :class="{ 'is-active': isActive.code_block() }"
+                                    @click.prevent="commands.code_block"
+                            >
+                                <></button>
 
-                    <div class="media">
+                        </div>
+                    </editor-menu-bar>
+                    <div class="question-create">
+                        <editor-content :editor="editor"/>
+                    </div>
+                    <button class="btn btn-primary" :disabled="isInvalid"> Update</button>
+                    <button class="btn btn-outline-secondary" @click.prevent="cancel" type="button"> Cancel</button>
+                    <!--<div class="media">
 
                         <div class="media-body">
                             <div class="form-group">
@@ -19,7 +40,7 @@
                             <button class="btn btn-primary" :disabled="isInvalid"> Update</button>
                             <button class="btn btn-outline-secondary" @click.prevent="cancel" type="button"> Cancel</button>
                         </div>
-                    </div>
+                    </div>-->
                 </form>
                 <div class="card-body" v-else>
 
@@ -74,11 +95,38 @@
     import Vote from "./Vote";
     import modification from "../mixins/modification";
 
+    import javascript from 'highlight.js/lib/languages/javascript'
+    import css from 'highlight.js/lib/languages/css'
+    import php from 'highlight.js/lib/languages/php'
+
+    import { Editor, EditorContent, EditorMenuBar } from 'tiptap'
+    import {
+        Bold,
+        Heading,
+        CodeBlockHighlight,
+        Code
+    }  from 'tiptap-extensions'
+
 export default {
     props : ['question'],
     mixins: [modification],
     data(){
         return{
+            editor: new Editor({
+                extensions : [
+                    new Bold(),
+                    new Heading(),
+                    new CodeBlockHighlight({
+                        languages: {
+                            javascript,
+                            css,
+                            php
+                        },
+                    }),
+                    new Code(),
+                ],
+                content : '<p></p><p></p>'
+            }),
             dataurl:this.question.data_url,
             body: this.question.body,
             title : this.question.title,
@@ -86,6 +134,10 @@ export default {
             beforeEditCache : null,
             id: this.question.id
         }
+    },
+    created (){
+        this.editor.setContent(this.body);
+
     },
 
     methods : {
@@ -105,7 +157,7 @@ export default {
 
         payload(){
             return {
-                body: this.body,
+                body: this.editor.getHTML(),
                 title: this.title
             }
         },
@@ -133,7 +185,7 @@ export default {
 */
     computed: {
         isInvalid(){
-            return this.body.length <10 || this.title.length <10;
+            return this.body.length <10 ;
         },
 
         endpoint(){
@@ -143,7 +195,10 @@ export default {
     },
     components :{
         Userinfo:Userinfo,
-        Vote :Vote
+        Vote :Vote,
+        EditorMenuBar,
+        EditorContent,
+
     }
 
 }
