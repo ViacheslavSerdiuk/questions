@@ -52,5 +52,6 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin'],func
         'update'=>'admin.questions.update'
     ]])->only('index','destroy','edit','update');
     Route::resource('/users','UsersController');
+    Route::get('/settings','SettingsController@index')->name('admin.settings');
 });
 
