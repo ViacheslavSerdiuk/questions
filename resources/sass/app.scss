@@ -242,6 +242,7 @@ pre {
 }
 
 
+/*
 .navbar{
  background-image: url("../img/mainten.png") ;
   background-repeat:no-repeat;
@@ -251,6 +252,7 @@ pre {
 nav .container {
   height: 90px;
 }
+*/
 
 
 
@@ -259,3 +261,6 @@ nav .container {
   width: 100%;
   height: auto;
 }*/
+#app{
+  background:linear-gradient(to bottom , rgba(136, 212, 255, 0.33),white);
+}
