@@ -83,7 +83,7 @@ class QuestionsController extends Controller
     public function show(Question $question)
     {
 
-     //   dd($customService->test());
+       // dd($url = action('QuestionsController@destroy',['id'=>45]));
         $question->increment('views');
         return view('questions.show',compact('question'));
 

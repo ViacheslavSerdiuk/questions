@@ -4267,6 +4267,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4283,7 +4289,7 @@ __webpack_require__.r(__webpack_exports__);
             css: highlight_js_lib_languages_css__WEBPACK_IMPORTED_MODULE_1___default.a,
             php: highlight_js_lib_languages_php__WEBPACK_IMPORTED_MODULE_2___default.a
           }
-        }), new tiptap_extensions__WEBPACK_IMPORTED_MODULE_4__["Code"]()],
+        }), new tiptap_extensions__WEBPACK_IMPORTED_MODULE_4__["Image"](), new tiptap_extensions__WEBPACK_IMPORTED_MODULE_4__["Code"]()],
         content: '<p></p><p></p>'
       }),
       title: '',
@@ -4297,6 +4303,15 @@ __webpack_require__.r(__webpack_exports__);
     EditorContent: tiptap__WEBPACK_IMPORTED_MODULE_3__["EditorContent"]
   },
   methods: {
+    showImagePrompt: function showImagePrompt(command) {
+      var src = prompt('Enter the url of your image here');
+
+      if (src !== null) {
+        command({
+          src: src
+        });
+      }
+    },
     create: function create() {
       var _this = this;
 
@@ -4437,6 +4452,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4457,7 +4479,7 @@ __webpack_require__.r(__webpack_exports__);
             css: highlight_js_lib_languages_css__WEBPACK_IMPORTED_MODULE_4___default.a,
             php: highlight_js_lib_languages_php__WEBPACK_IMPORTED_MODULE_5___default.a
           }
-        }), new tiptap_extensions__WEBPACK_IMPORTED_MODULE_7__["Code"]()],
+        }), new tiptap_extensions__WEBPACK_IMPORTED_MODULE_7__["Image"](), new tiptap_extensions__WEBPACK_IMPORTED_MODULE_7__["Code"]()],
         content: '<p></p><p></p>'
       }),
       dataurl: this.question.data_url,
@@ -4472,6 +4494,15 @@ __webpack_require__.r(__webpack_exports__);
     this.editor.setContent(this.body);
   },
   methods: {
+    showImagePrompt: function showImagePrompt(command) {
+      var src = prompt('Enter the url of your image here');
+
+      if (src !== null) {
+        command({
+          src: src
+        });
+      }
+    },
     setEditCache: function setEditCache() {
       this.beforeEditCache = {
         body: this.body,
@@ -68402,6 +68433,20 @@ var render = function() {
                         }
                       },
                       [_vm._v("\n                    <>")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "menubar__button",
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.showImagePrompt(commands.image)
+                          }
+                        }
+                      },
+                      [_c("i", [_vm._v("Image")])]
                     )
                   ])
                 ]
@@ -68556,6 +68601,20 @@ var render = function() {
                                   }
                                 },
                                 [_vm._v("\n                            <>")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "menubar__button",
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.showImagePrompt(commands.image)
+                                    }
+                                  }
+                                },
+                                [_c("i", [_vm._v("Image")])]
                               )
                             ])
                           ]
@@ -68564,7 +68623,7 @@ var render = function() {
                     ],
                     null,
                     false,
-                    2929720612
+                    3578296137
                   )
                 }),
                 _vm._v(" "),

@@ -24,6 +24,13 @@
                             >
                                 <></button>
 
+                            <button
+                                    class="menubar__button"
+                                    @click.prevent="showImagePrompt(commands.image)"
+                            >
+                                <i>Image</i>
+                            </button>
+
                         </div>
                     </editor-menu-bar>
                     <div class="question-create">
@@ -102,6 +109,7 @@
     import { Editor, EditorContent, EditorMenuBar } from 'tiptap'
     import {
         Bold,
+        Image,
         Heading,
         CodeBlockHighlight,
         Code
@@ -123,6 +131,7 @@ export default {
                             php
                         },
                     }),
+                    new Image(),
                     new Code(),
                 ],
                 content : '<p></p><p></p>'
@@ -141,6 +150,13 @@ export default {
     },
 
     methods : {
+        showImagePrompt(command) {
+            const src = prompt('Enter the url of your image here')
+            if (src !== null) {
+                command({ src })
+            }
+        },
+
         setEditCache(){
             this.beforeEditCache =
                 {

@@ -10883,3 +10883,11 @@ pre code .hljs-strong {
   font-weight: 700;
 }
 
+.media-body p img {
+  width: 250px;
+}
+
+.question-create p img {
+  width: 250px;
+}
+

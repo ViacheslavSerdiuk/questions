@@ -45,6 +45,12 @@
                             @click.prevent="commands.code_block"
                     >
                         <></button>
+                    <button
+                            class="menubar__button"
+                            @click.prevent="showImagePrompt(commands.image)"
+                    >
+                        <i>Image</i>
+                    </button>
 
                 </div>
             </editor-menu-bar>
@@ -75,6 +81,7 @@
         Bold,
         Heading,
         CodeBlockHighlight,
+        Image,
         Code
     }  from 'tiptap-extensions'
 
@@ -97,6 +104,7 @@
                                 php
                             },
                         }),
+                        new Image(),
                         new Code(),
                     ],
                     content : '<p></p><p></p>'
@@ -115,6 +123,13 @@
         },
 
         methods : {
+
+            showImagePrompt(command) {
+                const src = prompt('Enter the url of your image here')
+                if (src !== null) {
+                    command({ src })
+                }
+            },
 
             create(){
 
