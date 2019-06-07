@@ -42,7 +42,7 @@ class QuestionsController extends Controller
      */
     public function create()
     {
-         settings()->set('icon', 'img/favicon-16x16.png');
+        /* settings()->set('icon', 'img/favicon-16x16.png');*/
          $question = new Question();
          $categories = Category::all();
          //$category = json_encode($category);
