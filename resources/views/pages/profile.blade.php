@@ -3,7 +3,7 @@
 @section('content')
     <!--main content start-->
     <div class="main-content">
-        <div class="container">
+        <div class="container container-profile">
             <div class="row">
                 <div class="col-md-8">
 

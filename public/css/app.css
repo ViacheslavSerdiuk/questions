@@ -10912,3 +10912,7 @@ nav .container {
   background: linear-gradient(to bottom, rgba(136, 212, 255, 0.33), white);
 }
 
+.container-profile {
+  border: 1px solid lightblue;
+}
+
