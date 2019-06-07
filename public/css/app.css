@@ -10891,3 +10891,19 @@ pre code .hljs-strong {
   width: 250px;
 }
 
+.navbar {
+  background-image: url(/images/mainten.png?5ee4987e3b6713bd96369330830f29e1);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+
+nav .container {
+  height: 90px;
+}
+
+/*.img-banner img {
+  width: 100%;
+  height: auto;
+}*/
+
