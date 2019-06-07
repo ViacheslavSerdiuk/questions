@@ -71,7 +71,7 @@
                         <div class="media-body">
                             <div v-html="body_html"></div>
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-4 mt-auto">
                                     <div class="ml-auto">
 
                                         <a v-if="authorize('modify',question)" v-on:click.prevent="edit" class="btn btn-sm btn-outline-info">Edit</a>
@@ -81,8 +81,8 @@
                                     </div>
 
                                 </div>
-                                <div class="col-4"></div>
-                                <div class="col-4">
+                                <div class="col-5"></div>
+                                <div class="col-3">
 
                                     <user-info :model="question" label="Asked"></user-info>
                                 </div>

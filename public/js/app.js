@@ -4578,6 +4578,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['model', 'label'],
   computed: {
@@ -67932,7 +67935,7 @@ var render = function() {
               _c("div", { domProps: { innerHTML: _vm._s(_vm.body_html) } }),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-4" }, [
+                _c("div", { staticClass: "col-4 mt-auto" }, [
                   _c("div", { staticClass: "ml-auto" }, [
                     _vm.authorize("modify", _vm.answer)
                       ? _c(
@@ -67968,11 +67971,11 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-4" }),
+                _c("div", { staticClass: "col-5" }),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "col-4 " },
+                  { staticClass: "col-3" },
                   [
                     _c("user-info", {
                       attrs: { model: _vm.answer, label: "answered" }
@@ -68685,7 +68688,7 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-4" }, [
+                      _c("div", { staticClass: "col-4 mt-auto" }, [
                         _c("div", { staticClass: "ml-auto" }, [
                           _vm.authorize("modify", _vm.question)
                             ? _c(
@@ -68721,11 +68724,11 @@ var render = function() {
                         ])
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "col-4" }),
+                      _c("div", { staticClass: "col-5" }),
                       _vm._v(" "),
                       _c(
                         "div",
-                        { staticClass: "col-4" },
+                        { staticClass: "col-3" },
                         [
                           _c("user-info", {
                             attrs: { model: _vm.question, label: "Asked" }
@@ -68784,12 +68787,21 @@ var render = function() {
   return _c("div", [
     _c("span", { staticClass: "text-muted" }, [_vm._v(_vm._s(_vm.postDate))]),
     _vm._v(" "),
-    _c("div", { staticClass: "media mt-4" }, [
+    _c("div", { staticClass: "media" }, [
       _c("a", { staticClass: "pr-2", attrs: { href: _vm.user.url } }, [
-        _c("img", { staticClass: "w-25", attrs: { src: _vm.user.avatar } })
+        _c("img", {
+          staticClass: "w-50",
+          staticStyle: {
+            "object-fit": "none",
+            "object-position": "center",
+            height: "50px",
+            width: "75px"
+          },
+          attrs: { src: _vm.user.avatar }
+        })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "media-body mt-4" }, [
+      _c("div", { staticClass: "media-body mt-auto" }, [
         _c("a", { attrs: { href: _vm.user.url } }, [
           _vm._v(_vm._s(_vm.user.name))
         ])
