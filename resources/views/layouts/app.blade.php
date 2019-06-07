@@ -14,7 +14,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
+    <link rel="icon" type="image/png" sizes="16x16" href="{{URL::asset(settings()->get('icon'))}}">
 
 
     <!-- Styles -->
