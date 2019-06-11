@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Answer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,5 +27,9 @@ class AppServiceProvider extends ServiceProvider
         if(config('app.env') === 'production'){
             \URL::forceScheme('https');
         }
+
+        view()->composer('admin.layout',function($view){
+            $view->with('AnswersCount',Answer::all()->count());
+        });
     }
 }

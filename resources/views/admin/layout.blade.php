@@ -92,8 +92,14 @@
                 </div>
 
                 <div class="ml-auto mt-5">
+                    <a href="{{route('admin.answers.index')}}" class="btn btn-outline-secondary">Answers<small class="answer-green">({{$AnswersCount}})</small></a>
+                </div>
+
+                <div class="ml-auto mt-5">
                     <a href="{{route('admin.settings')}}" class="btn btn-outline-secondary">Settings</a>
                 </div>
+
+
 
             </section>
             <!-- /.sidebar -->

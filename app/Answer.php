@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Answer extends Model
 {
@@ -72,5 +73,15 @@ class Answer extends Model
         return $this->id === $this->question->best_answer_id;
     }
 
+    public function excerpt($length)
+    {
+
+        return Str::limit(strip_tags($this->bodyHtml()),$length);
+    }
+
+    private function bodyHtml()
+    {
+        return  \Parsedown::instance()->text($this->body);
+    }
 
 }

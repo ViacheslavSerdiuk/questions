@@ -5,9 +5,7 @@
 
         <div class="media-body m-3">
             <form v-if="editing" @submit.prevent="update">
-                <div class="card-title">
-                    <input type="text"  class="form-control  form-control-lg" v-model="title">
-                </div>
+
                 <hr>
 
                 <editor-menu-bar :editor="editor" v-slot="{ commands, isActive }">

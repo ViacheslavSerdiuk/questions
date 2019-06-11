@@ -51,6 +51,13 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'admin'],func
         'edit'=>'admin.questions.edit',
         'update'=>'admin.questions.update'
     ]])->only('index','destroy','edit','update');
+
+
+
+    Route::get('/answers','AnswersController@index')->name('admin.answers.index');
+    Route::delete('/answers/{id}/destroy','AnswersController@destroy')->name('admin.answers.destroy');
+
+
     Route::resource('/users','UsersController');
     Route::get('/settings','SettingsController@index')->name('admin.settings');
 });
