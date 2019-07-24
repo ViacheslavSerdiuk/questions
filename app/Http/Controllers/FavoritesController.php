@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Question;
-use foo\bar;
+
 use Illuminate\Http\Request;
 
 class FavoritesController extends Controller

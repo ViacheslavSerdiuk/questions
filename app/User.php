@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name', 'email', 'user_avatar','password'
     ];
 
-    protected $appends = ['url','avatar'];
+    protected $appends = ['url','avatar','count_questions','count_answers'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -161,12 +161,12 @@ class User extends Authenticatable
         }
     }
 
-    public function countQuestions()
+    public function getCountQuestionsAttribute()
     {
         return $this->questions()->count();
     }
 
-    public function countAnswers()
+    public function getCountAnswersAttribute()
     {
         return $this->answers()->count();
     }

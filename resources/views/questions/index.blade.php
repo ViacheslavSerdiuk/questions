@@ -18,7 +18,7 @@
                     <div class="card-body">
                         @include('layouts._messages')
                      @forelse($questions as $question)
-
+                         {{--   <excerpt :question="{{$question}}"></excerpt>--}}
                             @include('questions._excerpt')
 
                          @empty

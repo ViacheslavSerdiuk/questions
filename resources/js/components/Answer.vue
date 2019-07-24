@@ -49,6 +49,8 @@
                     <div class="col-3">
 
                         <user-info :model = "answer" label="answered"></user-info>
+
+
                     </div>
 
                 </div>
@@ -66,6 +68,7 @@
 <script>
 
     import Userinfo from "./Userinfo";
+
     import Vote from "./Vote";
     import modification from "../mixins/modification";
 
@@ -105,6 +108,7 @@
                 id:this.answer.id,
                 questionId:this.answer.question_id,
                 beforeEditCache : null,
+                user:this.answer.user
             }
         },
 
@@ -113,7 +117,6 @@
 
         },
         methods:{
-
 
             setEditCache(){
 
@@ -163,6 +166,7 @@
             Vote :Vote,
             EditorMenuBar,
             EditorContent,
+
         }
     }
 

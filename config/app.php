@@ -168,7 +168,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        \App\Providers\DateCheckServiceProvider::class,
         /*
          * Application Service Providers...
          */

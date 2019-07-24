@@ -24,7 +24,9 @@ Route::get('/category/{slugcategory}','HomeController@category')->name('category
 
 Route::resource('questions','QuestionsController')->except('show');
 //Route::post('/questions/{question}/answers','AnswersComntroller@store')->name('answers.store');
+
 Route::resource('questions.answers','AnswersController')->except(['create','show']);
+
 Route::get('/questions/{slug}','QuestionsController@show')->name('questions.show');
 Route::post('/answers/{answer}/accept','AcceptAnswerController@store')->name('answers.accept');
 Route::delete('/answers/{answer}/accept','AcceptAnswerController@destroy');

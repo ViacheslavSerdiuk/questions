@@ -14,7 +14,7 @@ class Question extends Model
 
     protected $fillable = ['title','body'];
 
-    protected  $appends = ['created_date','is_favorited','favorites_count','body_html','data_url'];
+    protected  $appends = ['created_date','is_favorited','favorites_count','body_html','data_url','plural_vote','plural_answer','plural_views','status','url'];
 
     public function category()
     {
@@ -160,6 +160,23 @@ class Question extends Model
     public function hasCategory()
     {
         return $this->category != null ? true : false;
+    }
+
+
+    public function getPluralVoteAttribute()
+    {
+       return Str::plural('vote',$this->votes_count);
+    }
+
+    public function getPluralAnswerAttribute()
+    {
+        return Str::plural('answer',$this->answers_count);
+    }
+
+    public function getPluralViewsAttribute()
+    {
+      return $this->views." ".Str::plural('view',$this->views);
+
     }
 
 }

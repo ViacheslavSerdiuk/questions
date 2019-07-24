@@ -17,8 +17,8 @@
 
                     <div class="card-body">
 
-                        <new-question :categories="{{ $categories }}"></new-question>
-                      {{--  {{Form::open([
+                      <new-question :categories="{{ $categories }}"></new-question>
+               {{-- {{Form::open([
                         'route'=>'questions.store',
                           ])}}
 

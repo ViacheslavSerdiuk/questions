@@ -23,11 +23,11 @@
 
                 <div class="col-md-4">
                     <div class="mt-5">
-                        <div class="font-weight-bold">{{$user->countQuestions()}}</div>  Questions
+                        <div class="font-weight-bold">{{$user->count_questions}}</div>  Questions
                     </div>
 
                     <div class="mt-5">
-                        <div class="font-weight-bold">{{$user->countAnswers()}}</div> Answers
+                        <div class="font-weight-bold">{{$user->count_answers}}</div> Answers
                     </div>
 
                 </div>

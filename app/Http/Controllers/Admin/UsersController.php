@@ -93,6 +93,7 @@ class UsersController extends Controller
     {
         $user = User::find($id);
 
+
         $this->validate($request, [
             'name'  =>  'required',
             'email' =>  [

@@ -31,7 +31,7 @@ class HomeController extends Controller
 
     public function category($slug)
     {
-     //   dd($slug);
+      /*  dd($slug);*/
 
         $category = Category::where('slug', $slug)->firstOrFail();
 

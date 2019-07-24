@@ -5,20 +5,20 @@ namespace App\Http\Controllers;
 use App\Answer;
 use App\Category;
 use App\Http\Requests\AskQuestionRequest;
-use App\Providers\DateCheckServiceProvider;
 use App\Question;
 use App\Services\Contracts\CustomServiceInterface;
+
 use App\Services\DateCheck;
-use App\Services\DateCheckNew;
 use App\User;
-use Illuminate\Http\Request;
+
 
 
 class QuestionsController extends Controller
 {
 
-    public function __construct()
+    public function __construct(/*CustomServiceInterface $customService*/)
     {
+            /*  dd($customService->test());*/
         $this->middleware('auth',['except'=>['index','show']]);
     }
 
@@ -31,6 +31,7 @@ class QuestionsController extends Controller
     {
 
         $questions = Question::with('user')->latest()->paginate(5);
+
         return view('questions.index',compact('questions'));
 
     }
@@ -45,7 +46,6 @@ class QuestionsController extends Controller
         /* settings()->set('icon', 'img/favicon-16x16.png');*/
          $question = new Question();
          $categories = Category::all();
-         //$category = json_encode($category);
 
          return view('questions.create',['question'=>$question, 'categories'=>$categories]);
 
@@ -59,6 +59,8 @@ class QuestionsController extends Controller
      */
     public function store(AskQuestionRequest $request)
     {
+
+
 
          $question = $request->user()->questions()->create($request->only('title','body'));
          $question->setCategory($request->get('category_id'));
@@ -83,9 +85,13 @@ class QuestionsController extends Controller
     public function show(Question $question)
     {
 
+        $users = User::all();
+
        // dd($url = action('QuestionsController@destroy',['id'=>45]));
+       $user = $question->user();
+     /* dd($user->first()->voteAnswers()->first());*/
         $question->increment('views');
-        return view('questions.show',compact('question'));
+        return view('questions.show',['question'=>$question]);
 
     }
 
